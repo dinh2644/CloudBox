@@ -1,0 +1,3 @@
+/mnt/c/Users/Poptart Demon/Downloads/CloudBox/build/CMakeFiles/CloudBox.dir
+/mnt/c/Users/Poptart Demon/Downloads/CloudBox/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Poptart Demon/Downloads/CloudBox/build/CMakeFiles/rebuild_cache.dir
