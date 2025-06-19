@@ -13,9 +13,15 @@ set(VERSION_REVISION 0)
 # Set the project name with the corresponding version
 project(CloudBox VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION})
 
+
 # Add an executable to our project
 add_executable(${PROJECT_NAME} 
-    src/main.cpp)
+    src/main.cpp
+    src/core/VmManager.cpp
+    src/platform/linux/QemuController.cpp
+    )
+target_include_directories(CloudBox PRIVATE ${CMAKE_SOURCE_DIR}/src/include)
+
 
 # Add the include directories (= our header files) to our target
 target_include_directories(${PROJECT_NAME} PRIVATE include)

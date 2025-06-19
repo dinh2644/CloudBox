@@ -1,5 +1,7 @@
 #pragma once
+#include <iostream>
 #include <memory>
+#include <utility>
 #include <string>
 #include <vector>
 
@@ -23,8 +25,9 @@ public:
     // Virtual destructors needed anytime inheritence/polymorphism is involved
     virtual ~IHypervisor() = default;
 
-    // virtual = allows for polymorphism
+    // virtual = allows for runtime polymorphism
     virtual bool launch_vm(const VmConfig& config) = 0; 
     virtual bool stop_vm(const std::string& vmName) = 0;     
     virtual bool list_vms(std::vector<VmStatus>& vms) = 0;
+    virtual std::string get_type() const = 0;
 };
