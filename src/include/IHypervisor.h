@@ -5,15 +5,23 @@
 #include <string>
 #include <vector>
 
-// Data needed for VM launch
+// #if defined(_WIN32)
+// #define PLATFORM_NAME "windows"
+// #elif defined(__linux__)
+// #define PLATFORM_NAME "linux"
+// #elif defined(__APPLE__)
+// #define PLATFORM_NAME "darwin"
+// #else
+// #define PLATFORM_NAME "null"
+// #endif
+
 struct VmConfig {
     std::string name;
     int cpu_cores{1};
-    int ram_mb{2048};
+    int ram_mb{4096};
     int disk_gb{10};
 };
 
-// What we need back about a VM
 struct VmStatus {
     std::string id;
     std::string name;
@@ -22,7 +30,6 @@ struct VmStatus {
 
 class IHypervisor {
 public:
-    // Virtual destructors needed anytime inheritence/polymorphism is involved
     virtual ~IHypervisor() = default;
 
     // virtual = allows for runtime polymorphism
@@ -31,3 +38,14 @@ public:
     virtual bool list_vms(std::vector<VmStatus>& vms) = 0;
     virtual std::string get_type() const = 0;
 };
+
+/*
+notes:
+
+VmConfig = data required to launch vm (depends on hypervisors)
+VmStatus = info we need about a VM
+virtual = allows for runtime polymorphism
+destructor must require virtual keyword anytime inheritence/polymorphism is involved
+
+*/
+

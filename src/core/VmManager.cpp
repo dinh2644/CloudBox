@@ -1,7 +1,6 @@
 #include "VmManager.h"
 
 /*
-
 VMs Orchestrator (Pass through layer (SRP))
 
 
@@ -13,6 +12,7 @@ To do later:
 */
 
 VmManager::VmManager(std::unique_ptr<IHypervisor> controller) : hypervisor_controller(std::move(controller)){
+    std::cout << "Initialized" << std::endl;
     if(!hypervisor_controller){
         throw std::runtime_error("hyper_controller cannot be null");
     }
@@ -20,6 +20,10 @@ VmManager::VmManager(std::unique_ptr<IHypervisor> controller) : hypervisor_contr
 
 bool VmManager::launch_vm(const VmConfig& config){
     std::cout << "Launched" << std::endl;
+    std::cout << "name: " << config.name << "\n";
+    std::cout << "cpus: " << config.cpu_cores << "\n";
+    std::cout << "ram: " << config.ram_mb << "\n";
+    std::cout << "disk: " << config.disk_gb << "\n";
     return hypervisor_controller->launch_vm(config); 
 }
 
