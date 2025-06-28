@@ -17,9 +17,9 @@
 
 struct VmConfig {
     std::string name;
-    int cpu_cores{1};
-    int ram_mb{4096};
-    int disk_gb{10};
+    int cpu_cores;
+    int ram;
+    int disk;
 };
 
 struct VmStatus {

@@ -2,10 +2,7 @@
 
 
 bool QemuController::launch_vm(const VmConfig& config){
-    std::cout << "Name: " <<  config.name << "\n"; 
-    std::cout << "Cores: " <<  config.cpu_cores << "\n"; 
-    std::cout << "Ram: " <<  config.ram_mb << "\n"; 
-    std::cout << "Disk: " <<  config.disk_gb << "\n"; 
+    std::cout << "Checkpoint 1 - Launcged!" << "\n";
     return true;
 }
 bool QemuController::stop_vm(const std::string& vm_name){return true;}

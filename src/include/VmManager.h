@@ -8,7 +8,8 @@ public:
     bool stop_vm(const std::string& vmName);     
     bool list_vms(std::vector<VmStatus>& vms);
     std::string get_hypervisor_type() const; 
-    IHypervisor* get_controller() const;
+    // IHypervisor* get_controller() const;
+    void DisplayConfig(VmConfig& config);
 
 private:
     std::unique_ptr<IHypervisor> hypervisor_controller; 

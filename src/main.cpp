@@ -7,7 +7,7 @@
 
 /*
 TODO:
-
+- check from cli.run() to first checkpoint and all of returned values
 
  */
 
@@ -31,10 +31,20 @@ int main(int argc, char** argv){
         std::cerr << "No compatible OS detected." << std::flush;
         return 0;
     }
-    // setup vm manager and cli (& transfer controller to it)
-    VmManager manager(std::move(controller)); 
-    CLIParser cli(argc, argv, manager);
-    return cli.run();
+
+    try
+    {
+        // setup vm manager and cli (& transfer controller to it)
+        VmManager manager(std::move(controller)); 
+        CLIParser cli(argc, argv, manager);
+        return cli.run();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    
 }
 
 /*

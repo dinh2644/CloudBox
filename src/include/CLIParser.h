@@ -5,7 +5,11 @@
 class CLIParser {
 public:
     CLIParser(int argc, char** argv, VmManager& manager) : argc_(argc), argv_(argv), manager_(manager){};
-    bool run();
+    int run();
+
+    bool launch_cmd(CLI::App& app, VmConfig& config, CLI::App* launch);
+    bool stop_cmd();
+    bool list_cmd();
 
 private:
     int argc_;

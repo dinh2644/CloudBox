@@ -24,8 +24,5 @@ add_executable(${PROJECT_NAME}
 # Adds src include folder
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/include)
 
-# Adds third party libraries (single file edition)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/vendor)
-
 
 
