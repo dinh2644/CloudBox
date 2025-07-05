@@ -4,14 +4,15 @@
 
 class CLIParser {
 public:
-    CLIParser(int argc, char** argv, VmManager& manager) : argc_(argc), argv_(argv), manager_(manager){};
+    CLIParser(int argc, char** argv, VmManager& manager);
     int run();
 
-    bool launch_cmd(CLI::App& app, VmConfig& config, CLI::App* launch);
-    bool stop_cmd();
-    bool list_cmd();
-
+    
 private:
+    void setup_launch();
+    void setup_stop();
+    void setup_list();
+    CLI::App app;
     int argc_;
     char** argv_;
     VmManager& manager_;

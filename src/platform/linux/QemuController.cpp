@@ -2,7 +2,7 @@
 
 
 bool QemuController::launch_vm(const VmConfig& config){
-    std::cout << "Checkpoint 1 - Launcged!" << "\n";
+    std::cout << "Checkpoint 1 - Launched!" << "\n";
     return true;
 }
 bool QemuController::stop_vm(const std::string& vm_name){return true;}

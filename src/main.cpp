@@ -7,9 +7,9 @@
 
 /*
 TODO:
-- check from cli.run() to first checkpoint and all of returned values
 
- */
+
+*/
 
 
 int main(int argc, char** argv){
@@ -26,12 +26,10 @@ int main(int argc, char** argv){
     #else
         controller = nullptr; 
     #endif
-
     if(controller == nullptr){
         std::cerr << "No compatible OS detected." << std::flush;
         return 0;
     }
-
     try
     {
         // setup vm manager and cli (& transfer controller to it)
